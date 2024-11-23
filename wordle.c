@@ -32,21 +32,6 @@ char* randomizeAnswer() {
     return answer;
 }
 
-bool validateGuess(char guess[], char* correct_answer) {
-    for (int i = 0; i < 5; i++) {
-        if (guess[i] == correct_answer[i]) {
-            printf("\033[32m%c  \033[0m", guess[i]);
-        } else if (strchr(correct_answer, guess[i]) != NULL) {
-            printf("\033[33m%c  \033[0m", guess[i]);
-        } else {
-            printf("\033[31m%c  \033[0m", guess[i]);
-        }
-    }
-    printf("\n");
-
-    return strcmp(correct_answer, guess) == 0;
-}
-
 void readInputs(char guess[]) {
     while (1) {
         printf("Enter your guess: ");
@@ -91,7 +76,7 @@ void playWordle() {
         for (int i = 0; i < 5; i++) {
             guesses[attempts][i] = guess[i];
         }
-        for (int i = attempts - 1; i >= 0; i--) {
+        for (int i = attempts; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 if (guesses[i][j] == correct_answer[j]) {
                     printf("\033[32m%c  \033[0m", guesses[i][j]);
@@ -103,7 +88,7 @@ void playWordle() {
             }
             printf("\n");
         }
-        if (validateGuess(guess, correct_answer)) {
+        if (strcmp(correct_answer, guess) == 0) {
             printf("Congrats! You guessed the correct word.\n");
             printf("Your score is %d out of 6.\n", 6 - attempts);
             return;
