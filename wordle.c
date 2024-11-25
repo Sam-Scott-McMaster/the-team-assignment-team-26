@@ -74,6 +74,8 @@ void playWordle() {
     int attempts = 0;
     char guesses[6][6];
 
+    FILE *wordle_score = fopen("wordle_score.txt", "w");
+
     while (attempts < 6) {
         readInputs(guess);
 
@@ -95,11 +97,16 @@ void playWordle() {
         if (strcmp(correct_answer, guess) == 0) {
             printf("Congrats! You guessed the correct word.\n");
             printf("Your score is %d out of 6.\n", 6 - attempts);
+            fprintf(wordle_score, "%.2d\n", (6 - attempts) / 6);
+            fclose(wordle_score);
             return;
         }
         attempts++;
     }
     printf("Sorry, you've used all attempts. The correct word was: %s\n", correct_answer);
+    fprintf(wordle_score, "0.00\n");
+    fclose(wordle_score);
+    
 }
 
 int main(int argc, char *argv[]) {
