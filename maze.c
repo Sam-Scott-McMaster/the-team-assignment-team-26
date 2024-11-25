@@ -65,12 +65,20 @@ int main() {
 
     srand(time(NULL)); 
 
+    FILE *scoreFile = fopen("maze_score.txt", "w"); 
+    if (scoreFile == NULL) {
+        fprintf(stderr, "Error: Could not open maze_score.txt for writing.\n");
+        return EXIT_FAILURE;
+    }
+
     while (true) {
         currentPosition(playerRow, playerCol);  
 
         if (playerRow == destinationRow && playerCol == destinationCol) {
             printf("You reached the goal in %d moves.\n", moveCount);
             printf("Impressive dedication! You endured all the glitches.\n");
+            fprintf(scoreFile, "You reached the goal in %d moves with %d glitches endured.\n", moveCount, glitchCount);
+            fclose(scoreFile);
             break;  
         }
 
@@ -84,6 +92,8 @@ int main() {
 
         if (strcmp(input, "quit") == 0) {
             printf("Game Over! You quit after %d moves and %d glitches.\n", moveCount, glitchCount);
+            fprintf(scoreFile, "Game Over! You quit after %d moves and %d glitches.\n", moveCount, glitchCount);
+            fclose(scoreFile);
             break;
         }
 
