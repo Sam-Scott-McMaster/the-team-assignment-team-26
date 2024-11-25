@@ -35,34 +35,38 @@ char* randomizeAnswer() {
 void readInputs(char guess[]) {
     while (1) {
         printf("Enter your guess: ");
-        
-        if (fgets(guess, 100, stdin) == NULL) {
+        if (fgets(guess, 7, stdin) == NULL) {  // Read up to 6 chars + newline
             printf("\nInput terminated. Exiting the game.\n");
             exit(1);
         }
 
-        // Strip newline character if present
-        if (strlen(guess) != 6 || guess[5] != '\n') {
+        if (guess[strlen(guess) - 1] == '\n') {
+            guess[strlen(guess) - 1] = '\0';
+        } else {
+            while (getchar() != '\n');
+        }
+
+        if (strlen(guess) != 5) {
             printf("Please enter exactly 5 characters.\n");
             continue;
         }
 
-        guess[5] = '\0';
-
-        // Check for invalid characters (non-alphabetic)
+        bool valid = true;
         for (int i = 0; i < 5; i++) {
             if (!isalpha(guess[i])) {
-                printf("Invalid input. Only alphabetic characters are allowed.\n");
-                guess[0] = '\0';  
+                valid = false;
                 break;
             }
         }
 
-        if (guess[0] != '\0') {
+        if (!valid) {
+            printf("Invalid input. Only alphabetic characters are allowed.\n");
+        } else {
             break;
         }
     }
 }
+
 
 void playWordle() {
     char *correct_answer = randomizeAnswer();
