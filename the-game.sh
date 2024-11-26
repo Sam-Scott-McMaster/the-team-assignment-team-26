@@ -35,7 +35,7 @@ test() {
     fi
 }
 
-# Main logic
+#main logic
 if [[ "$#" -eq 0 ]]; then
     echo "Usage: ./baddie-or-not --[help/test]"
     exit 1
