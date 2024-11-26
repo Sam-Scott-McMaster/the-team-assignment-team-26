@@ -3,7 +3,8 @@
 #include <string.h>
 #include <time.h>
 
-#define SIZE 8
+#define SIZE 4
+#define MAX_TRIES 15
 
 typedef struct {
     const char *object;
@@ -94,6 +95,8 @@ int main() {
     char *traitsBoard[SIZE][SIZE] = {NULL};
     int shown[SIZE][SIZE] = {0};
 
+    FILE *memoryMatch_score = fopen("memoryMatch_score.txt", "w");
+
     makeBoard(board, traitsBoard);
     showBoard(board, shown);
 
@@ -102,6 +105,16 @@ int main() {
     int matches = 0;
 
     while (matches < SIZE * SIZE / 2) {
+
+        if (tries >= MAX_TRIES) {
+            printf("\nYou've reached the maximum number of tries (%d). Game over!\n", MAX_TRIES);
+            printf("Your final score: %.2f\n", points);
+            fprintf(memoryMatch_score, "%.2f\n", points / tries); 
+            fclose(memoryMatch_score);
+            return 0;
+            
+        }
+
         int r1, c1, r2, c2;
 
         while (1) {
@@ -148,9 +161,16 @@ int main() {
         tries++;
         printf("Current points: %.2f\n", points);
         printf("Efficiency: %.2f points/turn\n", points / tries);
+        printf("Remaining tries: %d\n", MAX_TRIES - tries);
+
     }
 
     printf("\nCongratulations! You matched all objects in %d tries.\n", tries);
     printf("Your final points is %.2f.\n", points);
-    return points;
+
+    printf(" %.2f \n", points / tries);
+    fprintf(memoryMatch_score, "%.2f\n", points / tries);
+    fclose(memoryMatch_score);
+
+    return 0;
 }
