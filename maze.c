@@ -77,7 +77,7 @@ int main() {
         if (playerRow == destinationRow && playerCol == destinationCol) {
             printf("You reached the goal in %d moves.\n", moveCount);
             printf("Impressive dedication! You endured all the glitches.\n");
-            fprintf(scoreFile, "You reached the goal in %d moves with %d glitches endured.\n", moveCount, glitchCount);
+            fprintf(scoreFile, "%.2f\n", (float)glitchCount / 5);
             fclose(scoreFile);
             break;  
         }
@@ -92,7 +92,9 @@ int main() {
 
         if (strcmp(input, "quit") == 0) {
             printf("Game Over! You quit after %d moves and %d glitches.\n", moveCount, glitchCount);
-            fprintf(scoreFile, "Game Over! You quit after %d moves and %d glitches.\n", moveCount, glitchCount);
+
+            fprintf(scoreFile, "%.2f\n", (float)glitchCount / 5);
+
             fclose(scoreFile);
             break;
         }
