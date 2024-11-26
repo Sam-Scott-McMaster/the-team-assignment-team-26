@@ -1,0 +1,36 @@
+name: CI - Baddie-Or-Not Personality Test
+
+on:
+  push:
+    branches: [ "main" ] 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Make test_script Executable
+      run: chmod +x test_script
+    - name: test
+      run: |
+        make test
+        ./test_script >test_results.txt
+        gcov test-convert.c > convert_coverage.txt
+        gcov test-main.c > main_coverage.txt
+    - name: upload test results 
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with: 
+        name: Test Results
+        path: ./test_results.txt
+    - name: upload main gcov  
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with: 
+        name: main gcov Results
+        path: main_coverage.txt
+    - name: upload baddie-or-not gcov 
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with: 
+        name: baddie-or-not gcov Results
+        path: baddie-or-not_coverage.txt
