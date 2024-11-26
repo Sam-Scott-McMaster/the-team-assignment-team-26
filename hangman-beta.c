@@ -213,7 +213,7 @@ void hangmanGame() {
             displayGame(attempts);
             printf(" \n");
             printf("You lost! The word was: %s\n", gameWord);
-            fprintf(hangman_score, "0.0");
+            fprintf(hangman_score, "0.00");
             break;
         }
     }
