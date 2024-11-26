@@ -8,6 +8,8 @@ help() {
 
 test() {
     #run games
+    make
+
     ./hangman
     ./wordle
     ./maze
