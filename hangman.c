@@ -140,6 +140,7 @@ void hangmanGame() {
     char guessedLetters[26] = {}; 
     int count = 0;
     int unique = uniqueLetters(gameWord);
+    FILE *hangman_score = fopen("hangman_score.txt", "w");
 
     int letters = 0;
     for (int i = 0; i < wordLength; i++) {
@@ -203,7 +204,7 @@ void hangmanGame() {
             displayWord(word, wordLength);
             printf(" \n");
             printf("You won in %d guesses!\n", count);
-            printf("Your score is: %.2f! \n", score);
+            fprintf(hangman_score, "%.2f\n", score);
             break;
         }
 
@@ -212,10 +213,11 @@ void hangmanGame() {
             displayGame(attempts);
             printf(" \n");
             printf("You lost! The word was: %s\n", gameWord);
-            printf("Your score is: -1! \n");
+            fprintf(hangman_score, "0.0");
             break;
         }
     }
+    fclose(hangman_score);
 }
 
 void help() {
