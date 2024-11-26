@@ -204,7 +204,6 @@ void hangmanGame() {
             displayWord(word, wordLength);
             printf(" \n");
             printf("You won in %d guesses!\n", count);
-            printf("Your score is: %.2f! \n", score);
             fprintf(hangman_score, "%.2f\n", score);
             break;
         }
