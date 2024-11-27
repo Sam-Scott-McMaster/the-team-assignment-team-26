@@ -1,3 +1,16 @@
+/********************************* 
+ * Maze game 
+ * 
+ * This is a maze game displayed as a square grid in the terminal. 
+ * The player uses keyboard keys to navigate a piece ('S') from the start point 
+ * to the destination ('D'). Random glitches occur during the game, 
+ * causing the player's position to change unpredictably. 
+ * Players can choose to either quit or continue playing despite the challenges.
+ *
+ * 
+ * Paddy Esmaeili, McMaster University, 2024 
+***********************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,6 +20,7 @@
 
 #define cols 10
 #define rows 10
+
 
 char game_board[rows][cols] = {
     {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
@@ -21,6 +35,13 @@ char game_board[rows][cols] = {
     {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
 };
 
+/***************************************
+ * Displays the current state of the game board on the terminal, including the player's position.
+ * Arguments: int playerRow, int playerCol
+ * Outputs: Prints the game board to stdout, with the player's position marked as 'S'.
+ * Returns: N.A.
+***************************************/
+
 void currentPosition(int playerRow, int playerCol) {
     system("clear"); // Refreshes the terminal screen
     for (int i = 0; i < rows; i++) {
@@ -33,6 +54,13 @@ void currentPosition(int playerRow, int playerCol) {
         printf("\n");
     }
 }
+
+/***************************************
+ * Introduces a "glitch" that teleports the player to a new position on the board. The glitch happens randomly and only up to five times.
+ * Arguments: int *playerRow, int *playerCol, int destinationRow, int destinationCol, int *glitchCount
+ * Outputs: Redirects the glitch message to stdout. 
+ * Returns: N.A.
+***************************************/
 
 void makeGlitch(int *playerRow, int *playerCol, int destinationRow, int destinationCol, int *glitchCount) {
     if (*glitchCount >= 5) return;  // Stop glitches after 5 times
@@ -56,6 +84,13 @@ void makeGlitch(int *playerRow, int *playerCol, int destinationRow, int destinat
     sleep(2);  // Simulate delay
 }
 
+/***************************************
+ * Implements the main game loop where the player navigates the maze. Handles user inputs, movement validation, glitch generation, and game termination.
+ * Arguments: N.A.
+ * Outputs: In case of an error, redirects an error message to stderr. It redirects the score to a .txt file. It also outputs a message on stdout for the user. 
+ * Returns: EXIT_FAILURE in case of an error. Otherwise, EXIT_SUCCESS. 
+***************************************/
+
 int main() {
     int playerRow = 1, playerCol = 1; 
     int destinationRow = 8, destinationCol = 8; 
@@ -77,7 +112,7 @@ int main() {
         if (playerRow == destinationRow && playerCol == destinationCol) {
             printf("You reached the goal in %d moves.\n", moveCount);
             printf("Impressive dedication! You endured all the glitches.\n");
-            fprintf(scoreFile, "You reached the goal in %d moves with %d glitches endured.\n", moveCount, glitchCount);
+            fprintf(scoreFile, "%.2f\n", (float)glitchCount / 5);
             fclose(scoreFile);
             break;  
         }
@@ -92,7 +127,9 @@ int main() {
 
         if (strcmp(input, "quit") == 0) {
             printf("Game Over! You quit after %d moves and %d glitches.\n", moveCount, glitchCount);
-            fprintf(scoreFile, "Game Over! You quit after %d moves and %d glitches.\n", moveCount, glitchCount);
+
+            fprintf(scoreFile, "%.2f\n", (float)glitchCount / 5);
+
             fclose(scoreFile);
             break;
         }
