@@ -15,7 +15,6 @@ jobs:
         chmod +x maze_test_script
         chmod +x wordle_test_script
         chmod +x hangman_test_script.sh
-        chmod +x memoryMatch_test_script
 
     - name: Run Maze Test Script
       run: |
