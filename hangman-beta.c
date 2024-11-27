@@ -153,7 +153,7 @@ void hangmanGame() {
             word[i] = '_';
         }
     }
-
+    
     while (attempts < 6) {
         printf(" \n");
         displayGame(attempts);
@@ -164,7 +164,7 @@ void hangmanGame() {
         char guess;
         printf("Enter a letter: ");
         int result = scanf(" %c", &guess);
-        
+
         //exit the loop if eof is detected
         if (result == EOF) {
             printf("\nGame terminated by user.\n");
