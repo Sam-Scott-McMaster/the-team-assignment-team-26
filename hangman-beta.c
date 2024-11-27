@@ -140,6 +140,7 @@ void hangmanGame() {
     char guessedLetters[26] = {}; 
     int count = 0;
     int unique = uniqueLetters(gameWord);
+    FILE *hangman_score = fopen("hangman_score.txt", "w");
 
     int letters = 0;
     for (int i = 0; i < wordLength; i++) {
@@ -152,7 +153,7 @@ void hangmanGame() {
             word[i] = '_';
         }
     }
-
+    
     while (attempts < 6) {
         printf(" \n");
         displayGame(attempts);
@@ -162,7 +163,13 @@ void hangmanGame() {
        //player input
         char guess;
         printf("Enter a letter: ");
-        scanf(" %c", &guess);
+        int result = scanf(" %c", &guess);
+
+        //exit the loop if eof is detected
+        if (result == EOF) {
+            printf("\nGame terminated by user.\n");
+            break;
+        }
         guess = tolower(guess);
 
         //check if the non-letter is guessed
@@ -170,6 +177,12 @@ void hangmanGame() {
             printf(" \n");
             printf("Invalid input. Please enter a letter.\n");
             continue;
+        }
+
+        //exit the loop if eof is detected
+        if (result == EOF) {
+            printf("\nGame terminated by user.\n");
+            break;
         }
 
         //check if the letter has already been guessed
@@ -203,7 +216,7 @@ void hangmanGame() {
             displayWord(word, wordLength);
             printf(" \n");
             printf("You won in %d guesses!\n", count);
-            printf("Your score is: %.2f! \n", score);
+            fprintf(hangman_score, "%.2f\n", score);
             break;
         }
 
@@ -212,37 +225,15 @@ void hangmanGame() {
             displayGame(attempts);
             printf(" \n");
             printf("You lost! The word was: %s\n", gameWord);
-            printf("Your score is: -1! \n");
+            fprintf(hangman_score, "0.0");
             break;
         }
     }
+    fclose(hangman_score);
 }
 
-void help() {
-    printf("Hangman Game:\n");
-    printf("Usage: ./hangman \n");
-    printf("\nOptions:\n");
-    printf("./hangman --help        Show this help message and exit.\n\n");
-    printf("Description:\n");
-    printf("    This is a classic hangman game where you guess letters to uncover the hidden word.\n");
-    printf("    You have up to 6 incorrect attempts to guess the word.\n");
-    printf("    You can type in more than one letter at a time to guesss, but its recommended to guess letters one at a time.\n");
-    printf("    This game is meant to test the player on their problem-solving skills. \n");
-    printf("Scoring:\n");
-    printf("    Your score is calculated based on te number of guesses made proportional to the optimal number of guesses to win. \n");
-}
-
-int main(int argc, char *argv[]) {
-    for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--help") == 0) {
-            help();
-            return 0;
-        }
-    }
+int main() {
     srand(time(0));  //intialize rng
     hangmanGame();
     return 0;
 }
-
-// g h
-//./hangman

@@ -8,7 +8,7 @@
     - **Wordle**: A terminal-based Wordle game that tracks the number of attempts you take to find the correct answer.
     - **Hangman**: A classic game that tests your problem-solving skills and vocabulary.
     - **Maze**: Navigate through a glitchy maze that challenges your patience by introducing unexpected obstacles. Will you persevere or give up?
-    - **Memory Match**: A fashion-themed memory game where you match fashion items to the character you associate with them most.
+    - **Memory Match**: A fashion-themed memory game where you match items that are identical or similar in aesthetic to uncover the villain's trait. It tests memory, pattern recognition, aesthetic judgment, and strategic thinking.
 - Your quiz answers, combined with your scores from the mini-games, help refine the personality analysis by assessing traits like problem-solving skills, patience, and memory.
 - Finally, you'll be matched with a fictional villain that aligns with your personality!
 
