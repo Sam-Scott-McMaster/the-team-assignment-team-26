@@ -18,28 +18,28 @@ jobs:
 
     - name: Run Maze Test Script
       run: |
-        make test
+        make maze
         ./maze_test_script > maze_test_results.txt
         gcov test-convert.c > maze_convert_coverage.txt
         gcov test-main.c > maze_main_coverage.txt
     
     - name: Run Wordle Test Script
       run: |
-        make test
+        make wordle
         ./wordle_test_script > wordle_test_results.txt
         gcov test-convert.c > wordle_convert_coverage.txt
         gcov test-main.c > wordle_main_coverage.txt
     
     - name: Run Hangman Test Script
       run: |
-        make test
+        make hangman
         ./hangman_test_script > hangman_test_results.txt
         gcov test-convert.c > hangman_convert_coverage.txt
         gcov test-main.c > hangman_main_coverage.txt
 
     - name: Run Memory Match Test Script
       run: |
-        make test
+        make match
         ./memoryMatch_test_script > memoryMatch_test_results.txt
         gcov test-convert.c > memoryMatch_convert_coverage.txt
         gcov test-main.c > memoryMatch_main_coverage.txt
