@@ -16,21 +16,22 @@ jobs:
         chmod +x wordle_test_script
         chmod +x hangman_test_script.sh
 
+    - name: Make all files executable
+      run: |
+        make
+        
     - name: Run Maze Test Script
       run: |
-        make maze
         ./maze_test_script > maze_test_results.txt
         gcov maze.c > maze_convert_coverage.txt
     
     - name: Run Wordle Test Script
       run: |
-        make wordle
         ./wordle_test_script > wordle_test_results.txt
         gcov wordle.c > wordle_convert_coverage.txt
     
     - name: Run Hangman Test Script
       run: |
-        make hangman
         ./hangman_test_script > hangman_test_results.txt
         gcov hangman.c > hangman_convert_coverage.txt
 
