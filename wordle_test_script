@@ -1,0 +1,114 @@
+#!/bin/bash
+#
+# A simple framework for regression testing the Wordle game script
+#
+# Returns the number of failed test cases.
+#
+# Format of a test:
+#     test 'command' 'input file name' 'expected output file name' 'expected std error file name'
+#
+# Some example test cases are given. You should add more test cases.
+#
+# CAUTION: Uses temporary files named test_err.txt and test_out.txt
+# 
+# Sam Scott, McMaster University, 2024
+#
+declare -i tc=0
+declare -i fails=0
+
+############################################
+# Run a single test. Runs a given command 
+# to check the return value, stdout, and stderr
+#
+# GLOBALS: tc, fails
+# PARAMS: $1 = command
+#         $2 = input file name
+#         $3 = expected std output file name
+#         $4 = expected std error file name
+#
+# Assumes return value should be 0 if the
+# std error file is empty. Otherwise, it 
+# should be 1.
+#
+# OUTPUTS: A pass/fail report showing the
+# difference between expected and actual
+# output on a failure (diff command)
+############################################
+
+test() {
+    tc=tc+1
+
+    local COMMAND=$1
+    local INP=$2
+    local EX_OUT=$3
+    local EX_ERR=$4 
+
+    EX_RET=1
+    if [[ $(cat $EX_ERR) = "" ]]; then
+        EX_RET=0
+    fi
+    $COMMAND < $INP > test_out.txt 2> test_err.txt
+    RET=$?
+    if [[ $RET != $EX_RET ]]; then
+        echo "TC $tc Failed"
+        echo "Returned $RET"
+        echo "-----------"
+        fails=$fails+1
+        return
+    fi
+
+    # Remove ANSI escape codes from both files before comparison
+    sed 's/\x1b\[[0-9;]*m//g' test_out.txt > test_out_stripped.txt
+    sed 's/\x1b\[[0-9;]*m//g' $EX_OUT > expected_out_stripped.txt
+
+    # Compare stripped files
+    DIFF=$(diff test_out_stripped.txt expected_out_stripped.txt)
+    if [[ $DIFF != '' ]]; then
+        echo "TC $tc Failed Standard Output"
+        echo "$DIFF"
+        echo "-----------"
+        fails=$fails+1
+        return
+    fi
+
+    # Check standard error
+    DIFF=$(diff test_err.txt $EX_ERR)
+    if [[ $DIFF != '' ]]; then
+        echo "TC $tc Failed Standard Error"
+        echo "$DIFF"
+        echo "-----------"
+        fails=$fails+1
+        return
+    fi
+
+    echo "TC $tc Passed"
+}
+
+# Compile your C code
+gcc -o wordle-test wordle-test.c -fprofile-arcs -ftest-coverage -Wall
+
+# Example test cases
+test './wordle-test' 'wordle_test_cases/inp1.txt' 'wordle_test_cases/ex_out1.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/inp2.txt' 'wordle_test_cases/ex_out2.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/inp3.txt' 'wordle_test_cases/ex_out3.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/inp4.txt' 'wordle_test_cases/ex_out4.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/inp5.txt' 'wordle_test_cases/ex_out5.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/inp6.txt' 'wordle_test_cases/ex_out6.txt' 'wordle_test_cases/empty.txt'
+
+#generate the gcov report
+if [ -f "wordle-test.gcno" ]; then
+    mv wordle-test.gcno wordle.gcno
+fi
+
+if [ -f "wordle-test.gcda" ]; then
+    mv wordle-test.gcda wordle.gcda
+fi
+
+gcov -b wordle.c >> gcov_wordle_output.txt
+
+# Clean up
+rm test_err.txt test_out.txt expected_out_stripped.txt test_out_stripped.txt
+
+# Return code indicating the number of failures
+exit $fails
+
