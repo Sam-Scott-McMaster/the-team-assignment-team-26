@@ -4,7 +4,7 @@
 #include <time.h>
 
 #define SIZE 4
-#define MAX_TRIES 15
+#define MAX_TRIES 10
 
 typedef struct {
     const char *object;
