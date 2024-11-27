@@ -19,7 +19,7 @@ if [[ ! -f "maze_game.c" ]]; then
     echo "Error: maze_game.c not found!"
     exit 1
 fi
-gcc -o maze_game maze_game.c || { echo "Compilation failed!"; exit 1; }
+gcc -o maze maze.c || { echo "Compilation failed!"; exit 1; }
 
 declare -i fails=0
 
