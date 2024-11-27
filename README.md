@@ -30,8 +30,7 @@
 
 ## Installation and set up 
 1. git clone https://github.com/Sam-Scott-McMaster/the-team-assignment-team-26
-2. make baddie-or-not
-3. ./baddie-or-not
+2. ./baddie-or-not.sh --test
 
 ## Contributors/Authors
 1. Paddy Esmaeili (Paddy-Esmaeili)

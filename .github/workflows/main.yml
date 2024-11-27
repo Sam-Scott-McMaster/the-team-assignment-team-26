@@ -2,35 +2,105 @@ name: CI - Baddie-Or-Not Personality Test
 
 on:
   push:
-    branches: [ "main" ] 
+    branches: [ "main" ]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Make test_script Executable
-      run: chmod +x test_script
-    - name: test
+    
+    - name: Make all test scripts executable
+      run: |
+        chmod +x maze_test_script
+        chmod +x wordle_test_script
+        chmod +x hangman_test_script
+        chmod +x memoryMatch_test_script
+
+    - name: Run Maze Test Script
       run: |
         make test
-        ./test_script >test_results.txt
-        gcov test-convert.c > convert_coverage.txt
-        gcov test-main.c > main_coverage.txt
-    - name: upload test results 
+        ./maze_test_script > maze_test_results.txt
+        gcov test-convert.c > maze_convert_coverage.txt
+        gcov test-main.c > maze_main_coverage.txt
+    
+    - name: Run Wordle Test Script
+      run: |
+        make test
+        ./wordle_test_script > wordle_test_results.txt
+        gcov test-convert.c > wordle_convert_coverage.txt
+        gcov test-main.c > wordle_main_coverage.txt
+    
+    - name: Run Hangman Test Script
+      run: |
+        make test
+        ./hangman_test_script > hangman_test_results.txt
+        gcov test-convert.c > hangman_convert_coverage.txt
+        gcov test-main.c > hangman_main_coverage.txt
+
+    - name: Run Memory Match Test Script
+      run: |
+        make test
+        ./memoryMatch_test_script > memoryMatch_test_results.txt
+        gcov test-convert.c > memoryMatch_convert_coverage.txt
+        gcov test-main.c > memoryMatch_main_coverage.txt
+
+    - name: Upload Maze Test Results and Coverage
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
-      with: 
-        name: Test Results
-        path: ./test_results.txt
-    - name: upload main gcov  
+      with:
+        name: Maze Test Results
+        path: maze_test_results.txt
+    - name: Upload Maze Coverage Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
-      with: 
-        name: main gcov Results
-        path: main_coverage.txt
-    - name: upload baddie-or-not gcov 
+      with:
+        name: Maze Coverage Results
+        path: |
+          maze_convert_coverage.txt
+          maze_main_coverage.txt
+
+    - name: Upload Wordle Test Results and Coverage
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
-      with: 
-        name: baddie-or-not gcov Results
-        path: baddie-or-not_coverage.txt
+      with:
+        name: Wordle Test Results
+        path: wordle_test_results.txt
+    - name: Upload Wordle Coverage Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Wordle Coverage Results
+        path: |
+          wordle_convert_coverage.txt
+          wordle_main_coverage.txt
+
+    - name: Upload Hangman Test Results and Coverage
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Hangman Test Results
+        path: hangman_test_results.txt
+    - name: Upload Hangman Coverage Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Hangman Coverage Results
+        path: |
+          hangman_convert_coverage.txt
+          hangman_main_coverage.txt
+
+    - name: Upload Memory Match Test Results and Coverage
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Memory Match Test Results
+        path: memoryMatch_test_results.txt
+    - name: Upload Memory Match Coverage Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Memory Match Coverage Results
+        path: |
+          memoryMatch_convert_coverage.txt
+          memoryMatch_main_coverage.txt
