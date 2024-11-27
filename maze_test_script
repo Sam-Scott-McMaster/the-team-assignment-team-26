@@ -10,16 +10,16 @@
 # Paddy Esmaeili, McMaster University, 2024
 #
 
-EXECUTABLE="./maze_game"
+EXECUTABLE="./maze"
 SCORE_FILE="maze_score.txt"
 TEMP_OUTPUT="actual_output.txt"
 
 # Compile the program
-if [[ ! -f "maze_game.c" ]]; then
-    echo "Error: maze_game.c not found!"
+if [[ ! -f "maze.c" ]]; then
+    echo "Error: maze.c not found!"
     exit 1
 fi
-gcc -o maze_game maze_game.c || { echo "Compilation failed!"; exit 1; }
+gcc -o maze maze.c || { echo "Compilation failed!"; exit 1; }
 
 declare -i fails=0
 
