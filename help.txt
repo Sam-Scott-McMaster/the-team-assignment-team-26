@@ -1,9 +1,0 @@
-Welcome to Maze!
-
-How to Play:
-
-Test your problem-solving and strategic thinking skills in this exciting game.
-Take as much time as you need to reach your destination.
-Use the keys W (up), A (left), S (down), and D (right) to navigate the maze. Type 'quit' anytime to exit.
-Your score is based on the number of moves you make to reach the destination—the fewer, the better!
-Good luck and enjoy the challenge!
