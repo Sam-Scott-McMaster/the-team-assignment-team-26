@@ -58,9 +58,31 @@ test() {
     echo "5. Your score is calculated based on the number of guesses made, proportional to the optimal number of guesses to win."
     echo ""
     ./hangman
-    
-    echo "Welcome to Maze!"
+
+    echo "    Welcome to Maze!"
+    echo ""
+    echo "1. How to Play Maze:"
+    echo "2. Test your problem-solving and strategic thinking skills in this exciting game."
+    echo "3. Take as much time as you need to reach your destination."
+    echo ""
+    echo "4.  Use the keys W (up), A (left), S (down), and D (right) to navigate the maze."
+    echo "5. Type 'quit' anytime to exit."
+    echo ""
+    echo "6.  Your score is based on the number of moves you make to reach the destination—the fewer, the better!"
+    echo ""
     ./maze
+
+    echo "Welcome to Fashion Memory Game!"
+    echo ""
+    echo "How to Play Fashion Memory Game:"
+    echo "1. Match pairs of items that are identical or similar in aesthetic to reveal the villain's trait."
+    echo "2. Enter the row and column numbers of two cards to flip and check if they form a matching pair."
+    echo "3. Feedback on Matches:"
+    echo "   - Match: The pair is identical or aesthetically similar; it stays revealed, and you gain 1 point."
+    echo "   - No Match: The cards are flipped back over, and you lose 0.25 points."
+    echo "5. Match all pairs within 10 turns to uncover the villain's hidden trait!"
+    echo "6. Your final score is calculated based on efficiency (points/turns). Aim to maximize your matches with the fewest tries."
+    echo ""
     ./match
 
     hangman_score=$(cat hangman_score.txt)
