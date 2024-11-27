@@ -10,7 +10,7 @@
 # Paddy Esmaeili, McMaster University, 2024
 #
 
-EXECUTABLE="./maze_game"
+EXECUTABLE="./maze"
 SCORE_FILE="maze_score.txt"
 TEMP_OUTPUT="actual_output.txt"
 
