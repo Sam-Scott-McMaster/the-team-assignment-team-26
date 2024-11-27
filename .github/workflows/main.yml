@@ -89,18 +89,3 @@ jobs:
         path: |
           hangman_convert_coverage.txt
           hangman_main_coverage.txt
-
-    - name: Upload Memory Match Test Results and Coverage
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: Memory Match Test Results
-        path: memoryMatch_test_results.txt
-    - name: Upload Memory Match Coverage Results
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: Memory Match Coverage Results
-        path: |
-          memoryMatch_convert_coverage.txt
-          memoryMatch_main_coverage.txt
