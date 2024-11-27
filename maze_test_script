@@ -1,0 +1,84 @@
+#!/bin/bash
+#
+# A simple framework for regression testing the maze game script
+#
+# Returns the number of failed test cases and provides detailed failure reports.
+#
+# Test cases include various scenarios of the maze game such as normal moves,
+# invalid moves, glitches, winning the game, and quitting.
+#
+# Paddy Esmaeili, McMaster University, 2024
+#
+
+EXECUTABLE="./maze"
+SCORE_FILE="maze_score.txt"
+TEMP_OUTPUT="actual_output.txt"
+
+# Compile the program
+if [[ ! -f "maze_game.c" ]]; then
+    echo "Error: maze_game.c not found!"
+    exit 1
+fi
+gcc -o maze_game maze_game.c || { echo "Compilation failed!"; exit 1; }
+
+declare -i fails=0
+
+############################################
+# Runs a test case for the maze game.
+# Checks the program's output and score file.
+#
+# OUTPUTS: Pass/fail report with expected vs actual results.
+# GLOBALS: EXECUTABLE, SCORE_FILE, TEMP_OUTPUT, fails
+############################################
+run_test() {
+    local test_name=$1
+    local input=$2
+    local expected_output=$3
+    local expected_score=$4
+
+    echo "Running test: $test_name"
+    echo -e "$input" | $EXECUTABLE > $TEMP_OUTPUT 2>&1
+
+    # Check program's output
+    if ! grep -q "$expected_output" $TEMP_OUTPUT; then
+        echo "Test failed: $test_name"
+        echo "Expected output: $expected_output"
+        echo "Actual output:"
+        cat $TEMP_OUTPUT
+        fails+=1
+        return
+    fi
+
+    # Check score file if applicable
+    if [[ -n "$expected_score" && -f "$SCORE_FILE" ]]; then
+        actual_score=$(tail -n 1 $SCORE_FILE)
+        if [[ "$actual_score" != "$expected_score" ]]; then
+            echo "Test failed: $test_name"
+            echo "Expected score: $expected_score"
+            echo "Actual score: $actual_score"
+            fails+=1
+            return
+        fi
+    fi
+
+    echo "Test passed: $test_name"
+}
+
+# Test cases
+run_test "Basic movement" "s\nd\nd\nquit\n" "Game Over! You quit after 3 moves" ""
+run_test "Invalid move" "a\nquit\n" "Invalid move! Try again." ""
+run_test "Glitch occurs" "d\ns\ns\ns\ns\ns\ns\nquit\n" "Oops...Something went wrong :(" ""
+run_test "Win the game" "s\nd\nd\nd\nd\nd\nd\nd\nd\nquit\n" "You reached the goal in 9 moves." "1.00"
+
+rm -f $TEMP_OUTPUT
+if [[ -f $SCORE_FILE ]]; then
+    rm -f $SCORE_FILE
+fi
+
+if [[ $fails -eq 0 ]]; then
+    echo "All tests passed."
+else
+    echo "$fails test(s) failed."
+fi
+
+exit $fails
