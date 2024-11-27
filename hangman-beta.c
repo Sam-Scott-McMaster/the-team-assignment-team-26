@@ -237,6 +237,3 @@ int main() {
     hangmanGame();
     return 0;
 }
-
-// g h
-//./hangman
