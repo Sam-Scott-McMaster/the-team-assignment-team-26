@@ -12,6 +12,7 @@ jobs:
     
     - name: Make all test scripts executable
       run: |
+        chmod +x maze_test_script
         chmod +x test_scriptMemory
         chmod +x wordle_test_script
         chmod +x hangman_test_script.sh
@@ -35,6 +36,11 @@ jobs:
         make match
         ./test_scriptMemory > memoryMatch_test_results.txt
         gcov test_memoryMatch.c > memoryMatch_convert_coverage.txt
+        
+    - name: Run Maze Test Script
+      run: |
+        ./maze_test_script > maze_test_results.txt
+        gcov maze.c > maze_convert_coverage.txt
 
     - name: Upload Wordle Test Results and Coverage
       if: ${{ always() }}
@@ -79,3 +85,17 @@ jobs:
         path: |
           memoryMatch_convert_coverage.txt
           memoryMatch_main_coverage.txt
+    - name: Upload Maze Test Results and Coverage
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Maze Test Results
+        path: maze_test_results.txt
+    - name: Upload Maze Coverage Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Maze Coverage Results
+        path: |
+          maze_convert_coverage.txt
+          maze_main_coverage.txt
