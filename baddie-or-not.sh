@@ -85,23 +85,25 @@ test() {
     echo ""
     ./match
 
-    hangman_score=$(cat hangman_score.txt)
-    wordle_score=$(cat wordle_score.txt)
-    maze_score=$(cat maze_score.txt)
-    match_score=$(cat memoryMatch_score.txt)
+    hangman_score=$(awk '{printf "%.0f", $1 * 100}' hangman_score.txt)
+    wordle_score=$(awk '{printf "%.0f", $1 * 100}' wordle_score.txt)
+    maze_score=$(awk '{printf "%.0f", $1 * 100}' maze_score.txt)
+    match_score=$(awk '{printf "%.0f", $1 * 100}' memoryMatch_score.txt)
 
-    score=$(echo "scale=2; ($hangman_score + $wordle_score + $maze_score + $match_score) / 4 * 100" | bc)
+    # Scale scores to a range of 0-100 and calculate the average
+    score=$((($hangman_score + $wordle_score + $maze_score + $match_score)/4))
 
-    if (( $(echo "$score < 20" | bc -l) )); then
+    # Determine the category based on the average score
+    if ((score >= 0 && score < 20)); then
         echo ""
         cat scar.txt
-    elif (( $(echo "$score >= 20 && $score < 40" | bc -l) )); then
+    elif ((score >= 20 && score < 40)); then
         echo ""
         cat jafar.txt
-    elif (( $(echo "$score >= 40 && $score < 60" | bc -l) )); then
+    elif ((score >= 40 && score < 60)); then
         echo ""
         cat gaston.txt
-    elif (( $(echo "$score >= 60 && $score < 80" | bc -l) )); then
+    elif ((score >= 60 && score < 80)); then
         echo ""
         cat ursula.txt
     else

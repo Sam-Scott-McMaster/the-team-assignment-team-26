@@ -2,35 +2,60 @@ name: CI - Baddie-Or-Not Personality Test
 
 on:
   push:
-    branches: [ "main" ] 
+    branches: [ "main" ]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Make test_script Executable
-      run: chmod +x test_script
-    - name: test
+    
+    - name: Make all test scripts executable
       run: |
-        make test
-        ./test_script >test_results.txt
-        gcov test-convert.c > convert_coverage.txt
-        gcov test-main.c > main_coverage.txt
-    - name: upload test results 
+        chmod +x maze_test_script
+        chmod +x wordle_test_script
+        chmod +x hangman_test_script.sh
+
+    - name: Make all files executable
+      run: |
+        make
+  
+    - name: Run Wordle Test Script
+      run: |
+        ./wordle_test_script > wordle_test_results.txt
+        gcov wordle.c > wordle_convert_coverage.txt
+
+    - name: Run Hangman Test Script
+      run: |
+        ./hangman_test_script.sh > hangman_test_results.txt
+        gcov hangman-beta.c > hangman_convert_coverage.txt
+
+    - name: Upload Wordle Test Results and Coverage
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
-      with: 
-        name: Test Results
-        path: ./test_results.txt
-    - name: upload main gcov  
+      with:
+        name: Wordle Test Results
+        path: wordle_test_results.txt
+    - name: Upload Wordle Coverage Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
-      with: 
-        name: main gcov Results
-        path: main_coverage.txt
-    - name: upload baddie-or-not gcov 
+      with:
+        name: Wordle Coverage Results
+        path: |
+          wordle_convert_coverage.txt
+          wordle_main_coverage.txt
+
+    - name: Upload Hangman Test Results and Coverage
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
-      with: 
-        name: baddie-or-not gcov Results
-        path: baddie-or-not_coverage.txt
+      with:
+        name: Hangman Test Results
+        path: hangman_test_results.txt
+    - name: Upload Hangman Coverage Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Hangman Coverage Results
+        path: |
+          hangman_convert_coverage.txt
+          hangman_main_coverage.txt
