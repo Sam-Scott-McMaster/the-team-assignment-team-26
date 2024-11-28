@@ -6,18 +6,7 @@
 #include <ctype.h>
 
 char* randomizeAnswer() {
-    char* answer_bank[] = {"apple", "stone", "green", "smile", "blaze", "crash", "flick", "beach", "grape",
-                           "sweep", "flame", "stone", "grasp", "plume", "drain", "sword", "blunt", "flock",
-                           "sharp", "swoop", "lunar", "trick", "vivid", "cloud", "flint", "haste", "charm",
-                           "pouch", "spoon", "dance", "flock", "vivid", "haste", "brick", "gleam", "swirl",
-                           "skirt", "plaza", "stoic", "march", "plume", "blaze", "swoop", "crisp", "fluff",
-                           "jumpy", "waste", "throb"};
-
-    int num_words = sizeof(answer_bank) / sizeof(answer_bank[0]);
-    srand(time(NULL));
-    int random_index = rand() % num_words;
-    char* answer = answer_bank[random_index];
-    return answer;
+    return "apple";
 }
 
 void readInputs(char guess[]) {
