@@ -34,7 +34,7 @@ jobs:
       run: |
         make match
         ./test_scriptMemory > memoryMatch_test_results.txt
-        gcov memoryMatch.c > memoryMatch_convert_coverage.txt
+        gcov test_memoryMatch.c > memoryMatch_convert_coverage.txt
 
     - name: Upload Wordle Test Results and Coverage
       if: ${{ always() }}
