@@ -97,7 +97,7 @@ void playWordle() {
     
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     playWordle();
     return 0;
 }

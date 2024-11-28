@@ -33,7 +33,10 @@ test() {
     echo "Welcome to Baddie or Not. The games will begin now: Good luck!"
     echo ""
     echo ""
-    
+
+    sleep 10
+    clear
+
     echo "Welcome to Wordle!"
     echo ""
     echo "How to Play Wordle:"
@@ -47,7 +50,10 @@ test() {
     echo "5. Win or Lose: If you guess the word correctly, you win! If you run out of attempts, the correct word is revealed."
     echo ""
     ./wordle
-    
+
+    sleep 2
+    clear
+
     echo "Welcome to Hangman!"
     echo ""
     echo "How to Play Hangman:"
@@ -58,6 +64,9 @@ test() {
     echo "5. Your score is calculated based on the number of guesses made, proportional to the optimal number of guesses to win."
     echo ""
     ./hangman
+
+    sleep 2
+    clear
 
     echo "    Welcome to Maze!"
     echo ""
@@ -72,6 +81,9 @@ test() {
     echo ""
     ./maze
 
+    sleep 2
+    clear
+
     echo "Welcome to Fashion Memory Game!"
     echo ""
     echo "How to Play Fashion Memory Game:"
@@ -83,6 +95,7 @@ test() {
     echo "5. Match all pairs within 10 turns to uncover the villain's hidden trait!"
     echo "6. Your final score is calculated based on efficiency (points/turns). Aim to maximize your matches with the fewest tries."
     echo ""
+    clear
     ./match
 
     hangman_score=$(awk '{printf "%.0f", $1 * 100}' hangman_score.txt)
@@ -95,19 +108,19 @@ test() {
 
     # Determine the category based on the average score
     if ((score >= 0 && score < 20)); then
-        echo ""
+        clear
         cat scar.txt
     elif ((score >= 20 && score < 40)); then
-        echo ""
+        clear
         cat jafar.txt
     elif ((score >= 40 && score < 60)); then
-        echo ""
+        clear
         cat gaston.txt
     elif ((score >= 60 && score < 80)); then
-        echo ""
+        clear
         cat ursula.txt
     else
-        echo ""
+        clear
         cat cruella.txt
     fi
 }

@@ -106,6 +106,8 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    sleep(2);
+    
     while (true) {
         currentPosition(playerRow, playerCol);  
 
