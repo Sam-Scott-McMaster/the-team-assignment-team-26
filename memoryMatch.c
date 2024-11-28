@@ -165,9 +165,11 @@ int main() {
 
     }
 
-    printf("\nCongratulations! You matched all objects in %d tries.\n", tries);
-    printf("Your final points is %.2f.\n", points);
-
+    if (matches == (SIZE * SIZE / 2) && tries <= MAX_TRIES) {
+        printf("\nCongratulations! You matched all objects in %d tries.\n", tries);
+        printf("Your final points is %.2f.\n", points);
+    }
+    
     printf(" %.2f \n", points / tries);
     fprintf(memoryMatch_score, "%.2f\n", points / tries);
     fclose(memoryMatch_score);
