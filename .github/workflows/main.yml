@@ -12,7 +12,7 @@ jobs:
     
     - name: Make all test scripts executable
       run: |
-        chmod +x maze_test_script
+        chmod +x test_scriptMemory
         chmod +x wordle_test_script
         chmod +x hangman_test_script.sh
 
