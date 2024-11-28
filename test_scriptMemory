@@ -75,13 +75,26 @@ test() {
     echo "TC $tc Passed"
 }
 
-gcc -o match test_memoryMatch.c
+# Compile the C program with gcov enabled
+gcc -o match -fprofile-arcs -ftest-coverage test_memoryMatch.c
+if [ $? -ne 0 ]; then
+    echo "Compilation failed."
+    exit 1
+fi
 
-#Example test cases
+# Test cases
 test './match' 'inp_max_tries.txt' 'ex_out_max_tries.txt' 'empty.txt'
 
-  
-# clean up
+# Generate gcov report
+gcov match-test_memoryMatch.c > gcov_report.txt
+if [ $? -eq 0 ]; then
+    echo "gcov report generated in gcov_report.txt."
+else
+    echo "gcov report generation failed."
+fi
+
+# Clean up
+rm -f *.gcda *.gcno match
 rm test_err.txt test_out.txt
 
 # return code
