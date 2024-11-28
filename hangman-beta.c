@@ -167,9 +167,12 @@ void hangmanGame() {
 
         //exit the loop if eof is detected
         if (result == EOF) {
+            printf(" \n");
             printf("\nGame terminated by user.\n");
+            fprintf(hangman_score, "0.0");
             break;
         }
+        
         guess = tolower(guess);
 
         //check if the non-letter is guessed
@@ -177,12 +180,6 @@ void hangmanGame() {
             printf(" \n");
             printf("Invalid input. Please enter a letter.\n");
             continue;
-        }
-
-        //exit the loop if eof is detected
-        if (result == EOF) {
-            printf("\nGame terminated by user.\n");
-            break;
         }
 
         //check if the letter has already been guessed
@@ -225,7 +222,7 @@ void hangmanGame() {
             displayGame(attempts);
             printf(" \n");
             printf("You lost! The word was: %s\n", gameWord);
-            fprintf(hangman_score, "0.00");
+            fprintf(hangman_score, "0.0");
             break;
         }
     }
