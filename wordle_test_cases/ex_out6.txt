@@ -1,6 +1,0 @@
-Enter your guess: Please enter exactly 5 characters.
-Enter your guess: Please enter exactly 5 characters.
-Enter your guess: Invalid input. Only alphabetic characters are allowed.
-Enter your guess: [32ma  [0m[32mp  [0m[32mp  [0m[32ml  [0m[32me  [0m
-Congrats! You guessed the correct word.
-Your score is 6 out of 6.

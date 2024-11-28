@@ -1,5 +1,0 @@
-grape
-stone
-flame
-apple
-

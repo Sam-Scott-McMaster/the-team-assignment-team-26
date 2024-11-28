@@ -1,5 +1,0 @@
-Enter your guess: p  e  a  c  h  
-Enter your guess: a  p  p  l  e  
-p  e  a  c  h  
-Congrats! You guessed the correct word.
-Your score is 5 out of 6.
