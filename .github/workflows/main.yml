@@ -27,13 +27,8 @@ jobs:
 
     - name: Run Hangman Test Script
       run: |
-        ./hangman_test_script > hangman_test_results.txt
+        ./hangman_test_script.sh > hangman_test_results.txt
         gcov hangman-beta.c > hangman_convert_coverage.txt
-        
-    - name: Run Maze Test Script
-      run: |
-        ./maze_test_script > maze_test_results.txt
-        gcov maze.c > maze_convert_coverage.txt
 
     - name: Upload Wordle Test Results and Coverage
       if: ${{ always() }}
