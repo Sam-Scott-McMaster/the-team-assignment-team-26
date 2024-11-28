@@ -211,7 +211,7 @@ void hangmanGame() {
 
         //check if the player has won
         if (correctGuesses == letters) {
-            double score = (double) count / unique;
+            double score = (double)count/(unique + 6);
             displayGame(attempts);
             displayWord(word, wordLength);
             printf(" \n");
@@ -225,7 +225,7 @@ void hangmanGame() {
             displayGame(attempts);
             printf(" \n");
             printf("You lost! The word was: %s\n", gameWord);
-            fprintf(hangman_score, "0.0");
+            fprintf(hangman_score, "0.00");
             break;
         }
     }
