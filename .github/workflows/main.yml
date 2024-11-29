@@ -53,7 +53,7 @@ jobs:
       with:
         name: Wordle Coverage Results
         path: |
-          gcov_wordle_outputl.txt
+          gcov_wordle_output.txt
           wordle-test.c.gcov
     - name: Upload Hangman Test Results
       if: ${{ always() }}
