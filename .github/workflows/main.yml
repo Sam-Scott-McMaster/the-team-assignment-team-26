@@ -24,7 +24,6 @@ jobs:
     - name: Run Wordle Test Script
       run: |
         ./wordle_test_script > wordle_test_results.txt
-        gcov wordle.c > wordle_convert_coverage.txt
 
     - name: Run Hangman Test Script
       run: |
@@ -42,7 +41,7 @@ jobs:
         ./maze_test_script > maze_test_results.txt
         gcov maze.c > maze_convert_coverage.txt
 
-    - name: Upload Wordle Test Results and Coverage
+    - name: Upload Wordle Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
@@ -54,10 +53,9 @@ jobs:
       with:
         name: Wordle Coverage Results
         path: |
-          wordle_convert_coverage.txt
-          wordle_main_coverage.txt
-
-    - name: Upload Hangman Test Results and Coverage
+          gcov_wordle_outputl.txt
+          wordle-test.c.gcov
+    - name: Upload Hangman Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
@@ -71,7 +69,7 @@ jobs:
         path: |
           hangman_convert_coverage.txt
           hangman_main_coverage.txt
-    - name: Upload Memory Match Test Results and Coverage
+    - name: Upload Memory Match Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
@@ -85,7 +83,7 @@ jobs:
         path: |
           memoryMatch_convert_coverage.txt
           memoryMatch_main_coverage.txt
-    - name: Upload Maze Test Results and Coverage
+    - name: Upload Maze Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
