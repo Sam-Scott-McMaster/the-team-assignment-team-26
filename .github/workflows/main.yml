@@ -28,7 +28,7 @@ jobs:
     - name: Run Hangman Test Script
       run: |
         ./hangman_test_script.sh > hangman_test_results.txt
-        gcov hangman-beta.c > hangman_convert_coverage.txt
+        gcov hangman-test.c > hangman_convert_coverage.txt
 
     - name: Run Memory Match Test Script
       run: |
