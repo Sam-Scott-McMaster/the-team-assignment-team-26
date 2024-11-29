@@ -52,7 +52,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Wordle Coverage Results
-        path: gcov_wordle_output.txt
+        path: |
+          gcov_wordle_output.txt
     - name: Upload Hangman Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
