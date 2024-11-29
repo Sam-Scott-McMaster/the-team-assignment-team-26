@@ -47,14 +47,12 @@ jobs:
       with:
         name: Wordle Test Results
         path: wordle_test_results.txt
-    - name: Upload Wordle Coverage Results
+    - name: Upload Wordle Coverage Result
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
         name: Wordle Coverage Results
-        path: |
-          gcov_wordle_output.txt
-          wordle-test.c.gcov
+        path: gcov_wordle_output.txt
     - name: Upload Hangman Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
