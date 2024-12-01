@@ -94,6 +94,11 @@ test './wordle-test' 'wordle_test_cases/inp3.txt' 'wordle_test_cases/ex_out3.txt
 test './wordle-test' 'wordle_test_cases/inp4.txt' 'wordle_test_cases/ex_out4.txt' 'wordle_test_cases/empty.txt'
 test './wordle-test' 'wordle_test_cases/inp5.txt' 'wordle_test_cases/ex_out5.txt' 'wordle_test_cases/empty.txt'
 test './wordle-test' 'wordle_test_cases/inp6.txt' 'wordle_test_cases/ex_out6.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/inp7.txt' 'wordle_test_cases/ex_out7.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/inp8.txt' 'wordle_test_cases/ex_out8.txt' 'wordle_test_cases/empty.txt'
+test './wordle-test' 'wordle_test_cases/empty.txt' 'wordle_test_cases/ex_out9.txt' 'wordle_test_cases/stderr.txt'
+test './wordle-test' 'wordle_test_cases/inp10.txt' 'wordle_test_cases/ex_out10.txt' 'wordle_test_cases/empty.txt'
+
 
 #generate the gcov report
 if [ -f "wordle-test.gcno" ]; then
@@ -107,7 +112,7 @@ fi
 gcov -b wordle.c >> gcov_wordle_output.txt
 
 # Clean up
-rm test_err.txt test_out.txt expected_out_stripped.txt test_out_stripped.txt
+rm test_err.txt test_out.txt expected_out_stripped.txt test_out_stripped.txt wordle-test wordle.gcda wordle.gcno
 
 # Return code indicating the number of failures
 exit $fails

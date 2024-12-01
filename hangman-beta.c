@@ -172,7 +172,7 @@ void hangmanGame() {
             fprintf(hangman_score, "0.0");
             break;
         }
-        
+
         guess = tolower(guess);
 
         //check if the non-letter is guessed
