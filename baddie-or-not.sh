@@ -28,13 +28,12 @@ help() {
 
 test() {
     #run games
-    make
+    make -s
     
     echo "Welcome to Baddie or Not. The games will begin now: Good luck!"
     echo ""
-    echo ""
 
-    sleep 10
+    sleep 5
     clear
 
     echo "Welcome to Wordle!"
@@ -123,6 +122,8 @@ test() {
         clear
         cat cruella.txt
     fi
+
+    make -s clean
 }
 
 #main logic
