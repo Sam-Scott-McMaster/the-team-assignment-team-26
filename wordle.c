@@ -25,7 +25,8 @@ void readInputs(char guess[]) {
         printf("Enter your guess: ");
         if (fgets(guess, 7, stdin) == NULL) {  // Read up to 6 chars + newline
             printf("\nInput terminated. Exiting the game.\n");
-            exit(1);
+            fprintf(stderr, "\nInput terminated. Exiting the game.\n");
+	    exit(1);
         }
 
         if (guess[strlen(guess) - 1] == '\n') {
@@ -97,7 +98,7 @@ void playWordle() {
     
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     playWordle();
     return 0;
 }

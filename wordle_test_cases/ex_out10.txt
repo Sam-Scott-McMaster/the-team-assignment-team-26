@@ -1,0 +1,22 @@
+Enter your guess: [31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+Enter your guess: [31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+Enter your guess: [31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+Enter your guess: [31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+Enter your guess: [31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+Enter your guess: [31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+[31mh  [0m[33me  [0m[33ml  [0m[32ml  [0m[31mo  [0m
+Sorry, you've used all attempts. The correct word was: apple
