@@ -1,9 +1,20 @@
+/*
+ * Wordle Mini Game
+ * This program is a terminal-based Wordle game that tracks the number of attempts you take to find the correct answer.
+ * Senuni Kavisinghe (400517143), McMaster University, December 3, 2024
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+
+/*
+ * Randomly generates a 5 letter answer for the Wordle game from an answer bank.
+ * Parameters: N/A
+ */
 
 char* randomizeAnswer() {
     char* answer_bank[] = {"apple", "stone", "green", "smile", "blaze", "crash", "flick", "beach", "grape",
@@ -20,6 +31,11 @@ char* randomizeAnswer() {
     return answer;
 }
 
+/*
+ * Compares user input with randomly generated answer.
+ * Parameters: guess (5 letter word user input) 
+ */
+
 void readInputs(char guess[]) {
     while (1) {
         printf("Enter your guess: ");
@@ -30,13 +46,13 @@ void readInputs(char guess[]) {
         }
 
         if (guess[strlen(guess) - 1] == '\n') {
-            guess[strlen(guess) - 1] = '\0';
+            guess[strlen(guess) - 1] = '\0'; // Replacing newline character with null
         } else {
             while (getchar() != '\n');
         }
 
         if (strlen(guess) != 5) {
-            printf("Please enter exactly 5 characters.\n");
+            printf("Please enter exactly 5 characters.\n"); // Error check for character length
             continue;
         }
 
@@ -49,13 +65,17 @@ void readInputs(char guess[]) {
         }
 
         if (!valid) {
-            printf("Invalid input. Only alphabetic characters are allowed.\n");
+            printf("Invalid input. Only alphabetic characters are allowed.\n"); // Error check for non alphabetic characters
         } else {
             break;
         }
     }
 }
 
+/*
+ * Prints results of guess and stores score in a text file.
+ * Parameters: N/A
+ */
 
 void playWordle() {
     char *correct_answer = randomizeAnswer();
@@ -86,7 +106,7 @@ void playWordle() {
         if (strcmp(correct_answer, guess) == 0) {
             printf("Congrats! You guessed the correct word.\n");
             printf("Your score is %d out of 6.\n", 6 - attempts);
-            fprintf(wordle_score, "%.2d\n", (6 - attempts) / 6);
+            fprintf(wordle_score, "%.2d\n", (6 - attempts) / 6); // Final score out of 6 printed in file
             fclose(wordle_score);
             return;
         }

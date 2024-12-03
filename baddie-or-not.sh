@@ -1,7 +1,18 @@
 #!/bin/bash
 
+# This program determines which fictional villain matches your personality through engaging mini-games to analyze your traits.
+# Paddy Esmaeili, Senuni Kavisinghe, Navya Ahuja,Shayaha Jeyaseelan, McMaster University, December 3, 2024
+
+###########################
+# Help function explains the rules of the game and usage.
+# Globals: N/A
+# Arguments: N/A
+# Outputs: Rules of the game
+# Returns: N/A
+###########################
+
 help() {
-    echo "Baddie or Not (v1.0.0)"
+    echo "Baddie or Not (v1.1.0)"
     echo "Usage: ./baddie-or-not [OPTIONS]"
     echo ""
     echo "This app uses a series of questions to determine the user’s personality type in terms of what Disney villain character they are. It also invites the user to play games such as Hangman, Wordle, Maze, and Memory Match to improve the accuracy of the response they receive."
@@ -26,8 +37,14 @@ help() {
     echo "Objective: Complete all the mini-games and find out what Disney villain you are based on your performance!"
 }
 
+###########################
+# Runs each of the games with information on how to run it
+# Globals: N/A
+# Arguments: N/A
+# Outputs: Games
+# Returns: N/A
+###########################
 test() {
-    #run games
     make -s
     
     echo "Welcome to Baddie or Not. The games will begin now: Good luck!"
@@ -126,7 +143,6 @@ test() {
     make -s clean
 }
 
-#main logic
 if [[ "$#" -eq 0 ]]; then
     echo "Usage: ./baddie-or-not --[help/test]"
     exit 1
