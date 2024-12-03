@@ -32,7 +32,7 @@ jobs:
 
     - name: Run Memory Match Test Script
       run: |
-        make match
+        gcc -o match --coverage test_memoryMatch.c
         ./test_scriptMemory > memoryMatch_test_results.txt
         gcov test_memoryMatch.c > memoryMatch_convert_coverage.txt
         
