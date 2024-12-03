@@ -83,6 +83,9 @@ fi
 
 # Test cases
 test './match' 'inp_max_tries.txt' 'ex_out_max_tries.txt' 'empty.txt'
+test './match' 'inp_quit1.txt' 'out_quit1.txt' 'empty.txt'
+test './match' 'inp_quit2.txt' 'out_quit2.txt' 'empty.txt'
+
 
 # Generate gcov report
 gcov match-test_memoryMatch.c > gcov_report.txt

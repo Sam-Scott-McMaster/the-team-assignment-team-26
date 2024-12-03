@@ -7,6 +7,8 @@ Game 1
  1 [?]       [?]       [?]       [?]       
  2 [?]       [?]       [?]       [?]       
  3 [?]       [?]       [?]       [?]       
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 [?]       [?]       [?]       [?]       
  1 [?]       [?]       Necklace   [?]       
@@ -16,6 +18,8 @@ No match. Try again.
 Current points: 0.00
 Efficiency: 0.00 points/turn
 Remaining tries: 9
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      [?]       [?]       [?]       
  1 [?]       Fur Coat   [?]       [?]       
@@ -25,6 +29,8 @@ No match. Try again.
 Current points: 0.00
 Efficiency: 0.00 points/turn
 Remaining tries: 8
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Invalid input. Try again.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 [?]       [?]       [?]       [?]       
@@ -36,6 +42,8 @@ Trait: Elegance
 Current points: 1.00
 Efficiency: 0.33 points/turn
 Remaining tries: 7
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      [?]       [?]       
  1 Fur Coat   Fur Coat   [?]       [?]       
@@ -46,6 +54,8 @@ Trait: Royalty
 Current points: 2.00
 Efficiency: 0.50 points/turn
 Remaining tries: 6
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Invalid input. Try again.
 Enter the coordinates of the first object(row col): Invalid input. Try again.
 Enter the coordinates of the first object(row col): Invalid input. Try again.
@@ -59,6 +69,8 @@ Trait: Power
 Current points: 3.00
 Efficiency: 0.60 points/turn
 Remaining tries: 5
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      [?]       [?]       
  1 Fur Coat   Fur Coat   [?]       [?]       
@@ -69,6 +81,8 @@ Trait: Glamour
 Current points: 4.00
 Efficiency: 0.67 points/turn
 Remaining tries: 4
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    [?]       
  1 Fur Coat   Fur Coat   Necklace   [?]       
@@ -78,6 +92,8 @@ No match. Try again.
 Current points: 3.75
 Efficiency: 0.54 points/turn
 Remaining tries: 3
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 Fur Coat   Fur Coat   [?]       [?]       
@@ -88,6 +104,8 @@ Trait: Royalty
 Current points: 4.75
 Efficiency: 0.59 points/turn
 Remaining tries: 2
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col): Invalid input. Try again.
 Enter the coordinates of the second object(row col): Invalid input. Try again.
 Enter the coordinates of the second object(row col): Invalid input. Try again.
@@ -101,6 +119,8 @@ Trait: Elegance
 Current points: 5.75
 Efficiency: 0.64 points/turn
 Remaining tries: 1
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Invalid input. Try again.
 Enter the coordinates of the first object(row col): Invalid input. Try again.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
@@ -126,6 +146,8 @@ Game 2
  1 [?]       [?]       [?]       [?]       
  2 [?]       [?]       [?]       [?]       
  3 [?]       [?]       [?]       [?]       
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      [?]       [?]       
  1 [?]       [?]       [?]       [?]       
@@ -136,6 +158,8 @@ Trait: Royalty
 Current points: 1.00
 Efficiency: 1.00 points/turn
 Remaining tries: 9
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 [?]       [?]       [?]       [?]       
@@ -146,6 +170,8 @@ Trait: Royalty
 Current points: 2.00
 Efficiency: 1.00 points/turn
 Remaining tries: 8
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 Fur Coat   Fur Coat   [?]       [?]       
@@ -156,6 +182,8 @@ Trait: Elegance
 Current points: 3.00
 Efficiency: 1.00 points/turn
 Remaining tries: 7
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 Fur Coat   Fur Coat   Necklace   Necklace   
@@ -166,6 +194,8 @@ Trait: Elegance
 Current points: 4.00
 Efficiency: 1.00 points/turn
 Remaining tries: 6
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 Fur Coat   Fur Coat   Necklace   Necklace   
@@ -176,6 +206,8 @@ Trait: Power
 Current points: 5.00
 Efficiency: 1.00 points/turn
 Remaining tries: 5
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 Fur Coat   Fur Coat   Necklace   Necklace   
@@ -186,6 +218,8 @@ Trait: Power
 Current points: 6.00
 Efficiency: 1.00 points/turn
 Remaining tries: 4
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 Fur Coat   Fur Coat   Necklace   Necklace   
@@ -196,6 +230,8 @@ Trait: Glamour
 Current points: 7.00
 Efficiency: 1.00 points/turn
 Remaining tries: 3
+
+Enter '-1 -1' at any time to quit the game.
 Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
  0 Crown      Crown      Scepter    Scepter    
  1 Fur Coat   Fur Coat   Necklace   Necklace   
