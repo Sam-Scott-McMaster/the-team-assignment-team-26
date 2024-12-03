@@ -23,7 +23,7 @@
 ## Features
 - **Command-Line Interface**: A simple and intuitive terminal-based design.
 - **Help Functionality**: Use the `--help` flag to get detailed information about the app and its features.
-- **Unique Experience**: Combines personality questions with mini-games for a fun and personalized experience.
+- **Unique Experience**: Combines a series of mini-games for a fun and personalized experience.
 - **Villain Personality Matching**: Find out which fictional villain represents your personality.
 
 ## Installation and set up 
