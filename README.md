@@ -1,7 +1,7 @@
 # Baddie or Not 
 
 ## What Does It Do?
-**Baddie or Not** is an entertaining app that determines which fictional villain matches your personality. It combines personality quiz questions with a set of engaging mini-games to analyze your traits. Here's what it includes:
+**Baddie or Not** is an entertaining app that determines which fictional villain matches your personality through engaging mini-games. Here's what it includes:
 
 - **Mini-Games**:
     - **Wordle**: A terminal-based Wordle game that tracks the number of attempts you take to find the correct answer.
