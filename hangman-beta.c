@@ -1,3 +1,13 @@
+/********************************* 
+ * Hangman game 
+ * 
+ * This is a classic hangman game where you guess letters to uncover the hidden word. 
+ * You have up to 6 incorrect attempts to guess the word.
+ * You can type in more than one letter at a time to guesss, but it's recommended to guess letters one at a time. 
+ * This game is meant to test the player on their problem-solving skills.
+ * 
+ * Shayaha Jeyaseelan, McMaster University, 2024 
+***********************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
