@@ -1,0 +1,2 @@
+Enter your guess: 
+Input terminated. Exiting the game.

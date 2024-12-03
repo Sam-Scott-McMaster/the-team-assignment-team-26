@@ -11,3 +11,6 @@ maze: maze.c
 
 match: memoryMatch.c
 	gcc -o match memoryMatch.c
+
+clean:
+	rm -f hangman wordle maze match

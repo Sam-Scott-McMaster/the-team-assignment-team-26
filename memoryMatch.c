@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <stdbool.h>
 
 #define SIZE 4
 #define MAX_TRIES 10
@@ -103,6 +104,7 @@ int main() {
     float points = 0.0; // Float to track points 
     int tries = 0;
     int matches = 0;
+    bool quit = false;
 
     while (matches < SIZE * SIZE / 2) {
 
@@ -117,26 +119,56 @@ int main() {
 
         int r1, c1, r2, c2;
 
+        printf("\nEnter '-1 -1' at any time to quit the game.\n");
+
         while (1) {
             printf("Enter the coordinates of the first object(row col): ");
-            if (scanf("%d %d", &r1, &c1) == 2 && 
-                r1 >= 0 && r1 < SIZE && c1 >= 0 && c1 < SIZE &&
+            if (scanf("%d %d", &r1, &c1) == 2) {
+                if (r1 == -1 && c1 == -1) {
+                    quit = true;
+                    break;
+                }
+                if (r1 >= 0 && r1 < SIZE && c1 >= 0 && c1 < SIZE &&
                 !shown[r1][c1]) {
-                break;
+                    break;
+                }
             }
-            printf("Invalid input. Try again.\n");
+            if (quit == false ) {
+                printf("Invalid input. Try again.\n");
+            }
             while (getchar() != '\n'); 
+        }
+
+        if (quit == true) {
+            printf("You chose to quit. Your score is 0.00\n");
+            fprintf(memoryMatch_score, "0.00\n");
+            fclose(memoryMatch_score);
+            return 0;
         }
 
         while (1) {
             printf("Enter the coordinates of the second object(row col): ");
-            if (scanf("%d %d", &r2, &c2) == 2 && 
-                r2 >= 0 && r2 < SIZE && c2 >= 0 && c2 < SIZE &&
+            if (scanf("%d %d", &r2, &c2) == 2) {
+                if (r2 == -1 && c2 == -1) {
+                    quit = true;
+                    break;
+                }
+                if (r2 >= 0 && r2 < SIZE && c2 >= 0 && c2 < SIZE &&
                 !shown[r2][c2] && !(r1 == r2 && c1 == c2)) {
-                break;
+                    break;
+                }
             }
-            printf("Invalid input. Try again.\n");
+            if (quit == false ) {
+                printf("Invalid input. Try again.\n");
+            }            
             while (getchar() != '\n'); 
+        }
+
+        if (quit == true) {
+            printf("You chose to quit. Your score is 0.00\n");
+            fprintf(memoryMatch_score, "0.00\n");
+            fclose(memoryMatch_score);
+            return 0;
         }
 
         shown[r1][c1] = 1;
@@ -165,9 +197,11 @@ int main() {
 
     }
 
-    printf("\nCongratulations! You matched all objects in %d tries.\n", tries);
-    printf("Your final points is %.2f.\n", points);
-
+    if (matches == (SIZE * SIZE / 2) && tries <= MAX_TRIES) {
+        printf("\nCongratulations! You matched all objects in %d tries.\n", tries);
+        printf("Your final points is %.2f.\n", points);
+    }
+    
     printf(" %.2f \n", points / tries);
     fprintf(memoryMatch_score, "%.2f\n", points / tries);
     fclose(memoryMatch_score);

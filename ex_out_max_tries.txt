@@ -1,0 +1,248 @@
+Welcome to Disney Villain Memory Match!
+
+
+Game 1
+    0         1         2         3        
+ 0 [?]       [?]       [?]       [?]       
+ 1 [?]       [?]       [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 [?]       [?]       [?]       [?]       
+ 1 [?]       [?]       Necklace   [?]       
+ 2 [?]       Tentacles  [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+No match. Try again.
+Current points: 0.00
+Efficiency: 0.00 points/turn
+Remaining tries: 9
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      [?]       [?]       [?]       
+ 1 [?]       Fur Coat   [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+No match. Try again.
+Current points: 0.00
+Efficiency: 0.00 points/turn
+Remaining tries: 8
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Invalid input. Try again.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 [?]       [?]       [?]       [?]       
+ 1 Fur Coat   Fur Coat   [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Fur Coat and Fur Coat
+Trait: Elegance
+Current points: 1.00
+Efficiency: 0.33 points/turn
+Remaining tries: 7
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      [?]       [?]       
+ 1 Fur Coat   Fur Coat   [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Crown and Crown
+Trait: Royalty
+Current points: 2.00
+Efficiency: 0.50 points/turn
+Remaining tries: 6
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Invalid input. Try again.
+Enter the coordinates of the first object(row col): Invalid input. Try again.
+Enter the coordinates of the first object(row col): Invalid input. Try again.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      [?]       [?]       
+ 1 Fur Coat   Fur Coat   [?]       [?]       
+ 2 Tentacles  Tentacles  [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Tentacles and Tentacles
+Trait: Power
+Current points: 3.00
+Efficiency: 0.60 points/turn
+Remaining tries: 5
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      [?]       [?]       
+ 1 Fur Coat   Fur Coat   [?]       [?]       
+ 2 Tentacles  Tentacles  [?]       [?]       
+ 3 Mirror     Mirror     [?]       [?]       
+Matched objects: Mirror and Mirror
+Trait: Glamour
+Current points: 4.00
+Efficiency: 0.67 points/turn
+Remaining tries: 4
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    [?]       
+ 1 Fur Coat   Fur Coat   Necklace   [?]       
+ 2 Tentacles  Tentacles  [?]       [?]       
+ 3 Mirror     Mirror     [?]       [?]       
+No match. Try again.
+Current points: 3.75
+Efficiency: 0.54 points/turn
+Remaining tries: 3
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   [?]       [?]       
+ 2 Tentacles  Tentacles  [?]       [?]       
+ 3 Mirror     Mirror     [?]       [?]       
+Matched objects: Scepter and Scepter
+Trait: Royalty
+Current points: 4.75
+Efficiency: 0.59 points/turn
+Remaining tries: 2
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col): Invalid input. Try again.
+Enter the coordinates of the second object(row col): Invalid input. Try again.
+Enter the coordinates of the second object(row col): Invalid input. Try again.
+Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   Necklace   Necklace   
+ 2 Tentacles  Tentacles  [?]       [?]       
+ 3 Mirror     Mirror     [?]       [?]       
+Matched objects: Necklace and Necklace
+Trait: Elegance
+Current points: 5.75
+Efficiency: 0.64 points/turn
+Remaining tries: 1
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Invalid input. Try again.
+Enter the coordinates of the first object(row col): Invalid input. Try again.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   Necklace   Necklace   
+ 2 Tentacles  Tentacles  Staff      Staff      
+ 3 Mirror     Mirror     [?]       [?]       
+Matched objects: Staff and Staff
+Trait: Power
+Current points: 6.75
+Efficiency: 0.68 points/turn
+Remaining tries: 0
+
+You've reached the maximum number of tries (10). Game over!
+Your final score: 6.75
+ 0.68 
+Welcome to Disney Villain Memory Match!
+
+
+Game 2
+    0         1         2         3        
+ 0 [?]       [?]       [?]       [?]       
+ 1 [?]       [?]       [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      [?]       [?]       
+ 1 [?]       [?]       [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Crown and Crown
+Trait: Royalty
+Current points: 1.00
+Efficiency: 1.00 points/turn
+Remaining tries: 9
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 [?]       [?]       [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Scepter and Scepter
+Trait: Royalty
+Current points: 2.00
+Efficiency: 1.00 points/turn
+Remaining tries: 8
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   [?]       [?]       
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Fur Coat and Fur Coat
+Trait: Elegance
+Current points: 3.00
+Efficiency: 1.00 points/turn
+Remaining tries: 7
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   Necklace   Necklace   
+ 2 [?]       [?]       [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Necklace and Necklace
+Trait: Elegance
+Current points: 4.00
+Efficiency: 1.00 points/turn
+Remaining tries: 6
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   Necklace   Necklace   
+ 2 Tentacles  Tentacles  [?]       [?]       
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Tentacles and Tentacles
+Trait: Power
+Current points: 5.00
+Efficiency: 1.00 points/turn
+Remaining tries: 5
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   Necklace   Necklace   
+ 2 Tentacles  Tentacles  Staff      Staff      
+ 3 [?]       [?]       [?]       [?]       
+Matched objects: Staff and Staff
+Trait: Power
+Current points: 6.00
+Efficiency: 1.00 points/turn
+Remaining tries: 4
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   Necklace   Necklace   
+ 2 Tentacles  Tentacles  Staff      Staff      
+ 3 Mirror     Mirror     [?]       [?]       
+Matched objects: Mirror and Mirror
+Trait: Glamour
+Current points: 7.00
+Efficiency: 1.00 points/turn
+Remaining tries: 3
+
+Enter '-1 -1' at any time to quit the game.
+Enter the coordinates of the first object(row col): Enter the coordinates of the second object(row col):     0         1         2         3        
+ 0 Crown      Crown      Scepter    Scepter    
+ 1 Fur Coat   Fur Coat   Necklace   Necklace   
+ 2 Tentacles  Tentacles  Staff      Staff      
+ 3 Mirror     Mirror     Heels      Heels      
+Matched objects: Heels and Heels
+Trait: Glamour
+Current points: 8.00
+Efficiency: 1.00 points/turn
+Remaining tries: 2
+
+Congratulations! You matched all objects in 8 tries.
+Your final points is 8.00.
+ 1.00 

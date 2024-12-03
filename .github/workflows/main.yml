@@ -13,69 +13,49 @@ jobs:
     - name: Make all test scripts executable
       run: |
         chmod +x maze_test_script
+        chmod +x test_scriptMemory
         chmod +x wordle_test_script
-        chmod +x hangman_test_script
-        chmod +x memoryMatch_test_script
+        chmod +x hangman_test_script.sh
 
-    - name: Run Maze Test Script
+    - name: Make all files executable
       run: |
-        make test
-        ./maze_test_script > maze_test_results.txt
-        gcov test-convert.c > maze_convert_coverage.txt
-        gcov test-main.c > maze_main_coverage.txt
-    
+        make
+  
     - name: Run Wordle Test Script
       run: |
-        make test
         ./wordle_test_script > wordle_test_results.txt
-        gcov test-convert.c > wordle_convert_coverage.txt
-        gcov test-main.c > wordle_main_coverage.txt
-    
+
     - name: Run Hangman Test Script
       run: |
-        make test
-        ./hangman_test_script > hangman_test_results.txt
-        gcov test-convert.c > hangman_convert_coverage.txt
-        gcov test-main.c > hangman_main_coverage.txt
+        ./hangman_test_script.sh > hangman_test_results.txt
+        gcov hangman-test.c > hangman_convert_coverage.txt
 
     - name: Run Memory Match Test Script
       run: |
-        make test
-        ./memoryMatch_test_script > memoryMatch_test_results.txt
-        gcov test-convert.c > memoryMatch_convert_coverage.txt
-        gcov test-main.c > memoryMatch_main_coverage.txt
+        make match
+        ./test_scriptMemory > memoryMatch_test_results.txt
+        gcov test_memoryMatch.c > memoryMatch_convert_coverage.txt
+        
+    - name: Run Maze Test Script
+      run: |
+        gcc -o maze --coverage maze.c
+        ./maze_test_script > maze_test_results.txt
+        gcov maze.c > maze_convert_coverage.txt
 
-    - name: Upload Maze Test Results and Coverage
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: Maze Test Results
-        path: maze_test_results.txt
-    - name: Upload Maze Coverage Results
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: Maze Coverage Results
-        path: |
-          maze_convert_coverage.txt
-          maze_main_coverage.txt
-
-    - name: Upload Wordle Test Results and Coverage
+    - name: Upload Wordle Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
         name: Wordle Test Results
         path: wordle_test_results.txt
-    - name: Upload Wordle Coverage Results
+    - name: Upload Wordle Coverage Result
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
         name: Wordle Coverage Results
         path: |
-          wordle_convert_coverage.txt
-          wordle_main_coverage.txt
-
-    - name: Upload Hangman Test Results and Coverage
+          gcov_wordle_output.txt
+    - name: Upload Hangman Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
@@ -89,8 +69,7 @@ jobs:
         path: |
           hangman_convert_coverage.txt
           hangman_main_coverage.txt
-
-    - name: Upload Memory Match Test Results and Coverage
+    - name: Upload Memory Match Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
@@ -104,3 +83,17 @@ jobs:
         path: |
           memoryMatch_convert_coverage.txt
           memoryMatch_main_coverage.txt
+    - name: Upload Maze Test Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Maze Test Results
+        path: maze_test_results.txt
+    - name: Upload Maze Coverage Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: Maze Coverage Results
+        path: |
+          maze_convert_coverage.txt
+          maze_main_coverage.txt

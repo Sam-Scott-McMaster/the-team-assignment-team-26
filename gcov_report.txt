@@ -1,0 +1,5 @@
+File 'test_memoryMatch.c'
+Lines executed:100.00% of 101
+Creating 'test_memoryMatch.c.gcov'
+
+Lines executed:100.00% of 101

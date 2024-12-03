@@ -28,12 +28,14 @@ help() {
 
 test() {
     #run games
-    make
+    make -s
     
     echo "Welcome to Baddie or Not. The games will begin now: Good luck!"
     echo ""
-    echo ""
-    
+
+    sleep 5
+    clear
+
     echo "Welcome to Wordle!"
     echo ""
     echo "How to Play Wordle:"
@@ -47,7 +49,10 @@ test() {
     echo "5. Win or Lose: If you guess the word correctly, you win! If you run out of attempts, the correct word is revealed."
     echo ""
     ./wordle
-    
+
+    sleep 2
+    clear
+
     echo "Welcome to Hangman!"
     echo ""
     echo "How to Play Hangman:"
@@ -58,6 +63,9 @@ test() {
     echo "5. Your score is calculated based on the number of guesses made, proportional to the optimal number of guesses to win."
     echo ""
     ./hangman
+
+    sleep 2
+    clear
 
     echo "    Welcome to Maze!"
     echo ""
@@ -72,6 +80,9 @@ test() {
     echo ""
     ./maze
 
+    sleep 2
+    clear
+
     echo "Welcome to Fashion Memory Game!"
     echo ""
     echo "How to Play Fashion Memory Game:"
@@ -83,31 +94,36 @@ test() {
     echo "5. Match all pairs within 10 turns to uncover the villain's hidden trait!"
     echo "6. Your final score is calculated based on efficiency (points/turns). Aim to maximize your matches with the fewest tries."
     echo ""
+    clear
     ./match
 
-    hangman_score=$(cat hangman_score.txt)
-    wordle_score=$(cat wordle_score.txt)
-    maze_score=$(cat maze_score.txt)
-    match_score=$(cat memoryMatch_score.txt)
+    hangman_score=$(awk '{printf "%.0f", $1 * 100}' hangman_score.txt)
+    wordle_score=$(awk '{printf "%.0f", $1 * 100}' wordle_score.txt)
+    maze_score=$(awk '{printf "%.0f", $1 * 100}' maze_score.txt)
+    match_score=$(awk '{printf "%.0f", $1 * 100}' memoryMatch_score.txt)
 
-    score=$(echo "scale=2; ($hangman_score + $wordle_score + $maze_score + $match_score) / 4 * 100" | bc)
+    # Scale scores to a range of 0-100 and calculate the average
+    score=$((($hangman_score + $wordle_score + $maze_score + $match_score)/4))
 
-    if (( $(echo "$score < 20" | bc -l) )); then
-        echo ""
+    # Determine the category based on the average score
+    if ((score >= 0 && score < 20)); then
+        clear
         cat scar.txt
-    elif (( $(echo "$score >= 20 && $score < 40" | bc -l) )); then
-        echo ""
+    elif ((score >= 20 && score < 40)); then
+        clear
         cat jafar.txt
-    elif (( $(echo "$score >= 40 && $score < 60" | bc -l) )); then
-        echo ""
+    elif ((score >= 40 && score < 60)); then
+        clear
         cat gaston.txt
-    elif (( $(echo "$score >= 60 && $score < 80" | bc -l) )); then
-        echo ""
+    elif ((score >= 60 && score < 80)); then
+        clear
         cat ursula.txt
     else
-        echo ""
+        clear
         cat cruella.txt
     fi
+
+    make -s clean
 }
 
 #main logic
