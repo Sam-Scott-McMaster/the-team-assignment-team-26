@@ -87,13 +87,12 @@ test './match' 'inp_quit1.txt' 'out_quit1.txt' 'empty.txt'
 test './match' 'inp_quit2.txt' 'out_quit2.txt' 'empty.txt'
 
 
-#generate the gcov report
-if [ -f "match-test_memoryMatch.gcno" ]; then
-    mv match-test_memoryMatch.gcno test_memoryMatch.gcno
-fi
-
-if [ -f "match-test_memoryMatch.gcda" ]; then
-    mv match-test_memoryMatch.gcda test_memoryMatch.gcda
+# Generate gcov report
+gcov match-test_memoryMatch.c > gcov_report.txt
+if [ $? -eq 0 ]; then
+    echo "gcov report generated in gcov_report.txt."
+else
+    echo "gcov report generation failed."
 fi
 
 # Clean up
