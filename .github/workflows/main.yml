@@ -38,6 +38,7 @@ jobs:
         
     - name: Run Maze Test Script
       run: |
+        gcc -o maze --coverage maze.c
         ./maze_test_script > maze_test_results.txt
         gcov maze.c > maze_convert_coverage.txt
 
