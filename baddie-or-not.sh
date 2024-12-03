@@ -73,7 +73,7 @@ test() {
     echo "Welcome to Hangman!"
     echo ""
     echo "How to Play Hangman:"
-    echo "1. This is a classic hangman game where you guess letters to uncover the hidden word."
+    echo "1. This is a classic hangman game where you guess letters to uncover the hidden word. The category is South and North American countries"
     echo "2. You have up to 6 incorrect attempts to guess the word."
     echo "3. You can type in more than one letter at a time to guess, but it is recommended to guess letters one at a time."
     echo "4. This game is meant to test the player on their problem-solving skills."
