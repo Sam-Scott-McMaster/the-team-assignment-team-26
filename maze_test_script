@@ -74,7 +74,7 @@ run_test "Basic movement" "s\nd\nd\nquit\n" "Game Over! You quit after 3 moves" 
 run_test "Invalid move" "a\nquit\n" "Invalid move! Try again." ""
 run_test "Glitch occurs" "d\ns\ns\ns\ns\ns\ns\nquit\n" "Oops...Something went wrong :(" ""
 
-#run_test "Win the game" "s\nd\nd\nd\nd\nd\nd\nd\nd\nquit\n" "You reached the goal in 9 moves." "1.00"
+run_test "Win the game" "s\nd\nd\nd\nd\nd\nd\nd\nd\nquit\n" "You reached the goal in 9 moves." "1.00"
 
 
 # Cleanup
