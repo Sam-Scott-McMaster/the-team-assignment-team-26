@@ -39,7 +39,6 @@ jobs:
         gcc -o maze --coverage maze.c
         ./maze_test_script > maze_test_results.txt
         gcov maze.c > maze_convert_coverage.txt
-        gcov -b maze.c > maze_main_coverage.txt
 
     - name: Upload Wordle Test Results
       if: ${{ always() }}
