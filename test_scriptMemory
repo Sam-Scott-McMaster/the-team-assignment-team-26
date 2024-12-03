@@ -97,7 +97,6 @@ if [ -f "match-test_memoryMatch.gcda" ]; then
 fi
 
 # Clean up
-rm -f *.gcda *.gcno match
 rm test_err.txt test_out.txt
 
 # return code
