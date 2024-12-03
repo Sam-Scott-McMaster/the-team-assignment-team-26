@@ -4,6 +4,7 @@
 #
 # Ensures all tests pass by overriding random number generation and collects code coverage.
 #
+# Paddy Esmaeili, McMaster University, 2024
 
 EXECUTABLE="./maze"
 SCORE_FILE="maze_score.txt"
