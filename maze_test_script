@@ -2,7 +2,7 @@
 #
 # Test script for Maze Game
 #
-# Ensures all tests pass by overriding random number generation.
+# Ensures all tests pass by overriding random number generation and collects code coverage.
 #
 
 EXECUTABLE="./maze"
@@ -12,12 +12,15 @@ FAKE_RANDOM="./mock_random.so"
 FAKE_NUMBERS="fake_random_numbers.txt"
 declare -i fails=0
 
-# Compile the program
+# Clean up previous coverage files
+rm -f maze.gcno maze.gcda maze.c.gcov
+
+# Compile the program with coverage flags
 if [[ ! -f "maze.c" ]]; then
     echo "Error: maze.c not found!"
     exit 1
 fi
-gcc -o maze maze.c || { echo "Compilation failed!"; exit 1; }
+gcc -o maze maze.c -fprofile-arcs -ftest-coverage || { echo "Compilation failed!"; exit 1; }
 
 # Compile the mock library
 if [[ ! -f "mock_random.c" ]]; then
@@ -69,30 +72,22 @@ run_test() {
     echo "Test passed: $test_name"
 }
 
-gcc -o maze-test maze-test.c -fprofile-arcs -ftest-coverage -Wall
-
 # Test cases
 run_test "Basic movement" "s\nd\nd\nquit\n" "Game Over! You quit after 3 moves" ""
 run_test "Invalid move" "a\nquit\n" "Invalid move! Try again." ""
 run_test "Glitch occurs" "d\ns\ns\ns\ns\ns\ns\nquit\n" "Oops...Something went wrong :(" ""
 
-#run_test "Win the game" "s\nd\nd\nd\nd\nd\nd\nd\nd\nquit\n" "You reached the goal in 9 moves." "1.00"
+# Generate the gcov report
+echo "Generating coverage report..."
+gcov -b maze.c > gcov_maze_output.txt
 
-
-#generate the gcov report
-if [ -f "maze-test.gcno" ]; then
-    mv maze-test.gcno maze.gcno
-fi
-if [ -f "maze-test.gcda" ]; then
-    mv maze-test.gcda maze.gcda
-fi
-gcov -b maze.c >> gcov_maze_output.txt
-
+# Clean up
 rm -f $TEMP_OUTPUT
 if [[ -f $SCORE_FILE ]]; then
     rm -f $SCORE_FILE
 fi
 
+# Check test results
 if [[ $fails -eq 0 ]]; then
     echo "All tests passed."
 else
