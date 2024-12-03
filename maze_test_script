@@ -69,6 +69,8 @@ run_test() {
     echo "Test passed: $test_name"
 }
 
+gcc -o maze-test maze-test.c -fprofile-arcs -ftest-coverage -Wall
+
 # Test cases
 run_test "Basic movement" "s\nd\nd\nquit\n" "Game Over! You quit after 3 moves" ""
 run_test "Invalid move" "a\nquit\n" "Invalid move! Try again." ""
@@ -77,7 +79,15 @@ run_test "Glitch occurs" "d\ns\ns\ns\ns\ns\ns\nquit\n" "Oops...Something went wr
 #run_test "Win the game" "s\nd\nd\nd\nd\nd\nd\nd\nd\nquit\n" "You reached the goal in 9 moves." "1.00"
 
 
-# Cleanup
+#generate the gcov report
+if [ -f "maze-test.gcno" ]; then
+    mv maze-test.gcno maze.gcno
+fi
+if [ -f "maze-test.gcda" ]; then
+    mv maze-test.gcda maze.gcda
+fi
+gcov -b maze.c >> gcov_maze_output.txt
+
 rm -f $TEMP_OUTPUT
 if [[ -f $SCORE_FILE ]]; then
     rm -f $SCORE_FILE
@@ -89,4 +99,5 @@ else
     echo "$fails test(s) failed."
 fi
 
+# Return code indicating the number of failures
 exit $fails
