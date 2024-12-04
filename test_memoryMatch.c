@@ -42,8 +42,8 @@ typedef struct {
  *  - board: 2D array of strings representing  objects on the board.
  *  - traitsBoard: A 2D array of strings representing the traits corresponding to each object.*/
 //Returns: void
-void makeBoard(char *board[SIZE][SIZE], char *traitsBoard[SIZE][SIZE]) {
-    // Create a hard coded instance array of objectTrait
+void makeBoard(char *board[SIZE][SIZE], char *traitsBoard[SIZE][SIZE]) 
+{    // Create a hard coded instance array of objectTrait
     //2 Objects can match if they are in the same trait, even if they are not identical
     const objectTrait hardcodedPairs[SIZE * SIZE / 2] = {
         {"Crown", "Royalty"}, {"Scepter", "Royalty"},
@@ -143,7 +143,6 @@ int main() {
                 printf("\nYou've reached the maximum number of tries (%d). Game over!\n", MAX_TRIES);
                 printf("Your final score: %.2f\n", points);
                 fprintf(memoryMatch_score, "%.2f\n", points / tries); //Print score in .txt file
-                fclose(memoryMatch_score); //Close file
                 break; //break loop 
             
             }
