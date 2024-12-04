@@ -144,7 +144,7 @@ int main() {
                 printf("Your final score: %.2f\n", points);
                 fprintf(memoryMatch_score, "%.2f\n", points / tries); //Print score in .txt file
                 fclose(memoryMatch_score); //Close file
-                return 0; 
+                break; //break loop 
             
             }
 
